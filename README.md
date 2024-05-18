@@ -44,6 +44,8 @@ bash
 
 Running the Application
 
+    Set your Google API key in the `.env` file:
+
 ### Start the FastAPI application using uvicorn:
 
 bash
@@ -55,13 +57,13 @@ The application will be accessible at http://127.0.0.1:8000.
 ## Usage
 ### Endpoints
 
-    /analyze: Accepts a prompt and uses the first Gemini model to determine which API to call.
-    /fetch-data: Fetches data from the identified API.
-    /generate-response: Combines the prompt with the fetched data and uses the second Gemini model to generate a response.
+    POST http://localhost:8000/process-prompt Content-Type: application/json
+    GET http://localhost:8000/get_orders
+    GET http://localhost:8000/get_order_lines
 
 ### Example Workflow
 
-    Send a prompt to the /analyze endpoint.
+    Send a prompt to the /process-prompt endpoint.
     The system will analyze the prompt and determine the necessary API call.
     The relevant data will be fetched and merged with the original prompt.
     The combined data will be processed to generate a final response, which will be returned to the user.
